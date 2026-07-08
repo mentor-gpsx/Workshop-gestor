@@ -1,9 +1,0 @@
-{
-  "name": "landing-workshop-gestores",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Landing page do Workshop: O Que Um Gestor de Marketplace Faz — checkout via API InfinitePay (Vercel Serverless)",
-  "engines": {
-    "node": ">=18"
-  }
-}
