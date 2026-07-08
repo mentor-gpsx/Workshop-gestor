@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição Confirmada</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d1117;--ink-2:#111820;--line:rgba(197,211,224,.10);--cyan:#00d4ff;--text-hi:#f0f4f8;--text:#c5d3e0;--muted:#7a8fa6;--syne:'Syne',sans-serif;--dm:'DM Sans',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--dm);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{width:min(680px,90%);margin:0 auto}
+header{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(13,17,23,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);height:62px;display:flex;align-items:center}
+.nav{display:flex;align-items:center;justify-content:space-between;width:100%}
+.logo{font-family:var(--syne);font-weight:800;font-size:1.05rem;color:var(--text-hi)}
+.logo span{color:var(--cyan)}
+.confirm{min-height:100vh;padding:140px 0 70px;display:flex;align-items:center;justify-content:center;text-align:center}
+.confirm::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:760px;height:540px;background:radial-gradient(ellipse at center,rgba(0,212,255,.14),transparent 65%);pointer-events:none}
+.confirm-grid{position:relative;max-width:560px}
+.emoji{font-size:5rem;margin-bottom:16px;line-height:1}
+h1{font-family:var(--syne);font-weight:800;font-size:clamp(2rem,6vw,2.8rem);color:var(--text-hi);margin-bottom:12px}
+h1 .hl{color:var(--cyan)}
+.lead{font-size:clamp(1rem,3.2vw,1.1rem);color:var(--text);margin-bottom:8px}
+.list{list-style:none;display:grid;gap:11px;margin:24px 0;padding:0}
+.list li{display:flex;gap:10px;font-size:.95rem;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line);padding:14px;border-radius:10px}
+.list li::before{content:"✓";color:var(--cyan);font-weight:700;flex-shrink:0;font-size:1rem}
+.list li b{color:var(--text-hi);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--syne);font-weight:700;font-size:1.02rem;padding:18px 34px;border-radius:12px;cursor:pointer;border:none;transition:transform .18s,box-shadow .18s;width:100%;background:var(--cyan);color:#04222b;box-shadow:0 8px 32px rgba(0,212,255,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(0,212,255,.4)}
+.btn-wpp{background:#25d366;color:#fff;box-shadow:0 8px 32px rgba(37,211,102,.28)}
+.btn-wpp:hover{background:#3ee07a;box-shadow:0 14px 44px rgba(37,211,102,.4)}
+.note{display:block;margin-top:12px;font-size:.8rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-size:.78rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Workshop<span>.</span></div>
+  </div>
+</header>
+
+<section class="confirm">
+  <div class="confirm-grid">
+    <div class="emoji">🎉</div>
+    <h1>Inscrição <span class="hl">Confirmada!</span></h1>
+    <p class="lead">Sua vaga está garantida.</p>
+    <p class="lead">Entre no grupo para receber o link da aula:</p>
+    <ul class="list">
+      <li><b>Link da aula ao vivo</b></li>
+      <li><b>Avisos importantes</b></li>
+      <li><b>Material complementar</b></li>
+    </ul>
+    <a class="btn btn-wpp" id="wpp-btn" href="https://chat.whatsapp.com/H4fjvxAMhoCEMPvfeQXC1u" target="_blank" rel="noopener">Entrar no Grupo do WhatsApp</a>
+    <span class="note">Workshop ao vivo · 16 de julho · 18h30</span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Workshop ao vivo · 16 de julho · 18h30 · Online</div>
+</footer>
+
+<script>
+(function() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const stored = {};
+    ['receipt_url', 'transaction_nsu', 'order_nsu', 'slug', 'capture_method'].forEach(k => {
+      if (params.has(k)) stored[k] = params.get(k);
+    });
+    if (Object.keys(stored).length) {
+      stored._saved_at = new Date().toISOString();
+      localStorage.setItem('infinitepay_payment', JSON.stringify(stored));
+    }
+    history.replaceState(null, '', window.location.pathname);
+  } catch (e) {}
+})();
+</script>
+
+</body>
+</html>
