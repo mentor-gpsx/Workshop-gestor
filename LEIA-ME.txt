@@ -1,0 +1,30 @@
+WORKSHOP: O QUE UM GESTOR DE MARKETPLACE FAZ
+
+DATA: 16 de julho às 18h30
+VALOR: R$ 27,00
+FORMATO: Online ao vivo
+
+ESTRUTURA:
+==========
+index.html              - Landing page original
+confirmado.html         - Página após pagamento
+api/create-checkout.js  - API InfinitePay
+api/payment-check.js    - Verificação de pagamento
+assets/                 - Imagens
+
+FUNCIONALIDADES:
+================
+✓ Design original preservado
+✓ Countdown regressivo
+✓ Checkout via API (sem link fixo)
+✓ Redirecionamento automático
+✓ Confirmação + WhatsApp
+
+DEPLOY:
+=======
+1. GitHub → Novo repositório
+2. Vercel → Add New Project
+3. Selecione o repositório
+4. Deploy automático
+
+PRONTO! 🚀

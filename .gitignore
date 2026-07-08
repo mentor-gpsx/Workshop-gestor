@@ -1,0 +1,7 @@
+node_modules/
+.npm
+package-lock.json
+*.log
+.DS_Store
+.vercel/
+.env
